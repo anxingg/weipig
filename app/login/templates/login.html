@@ -1,0 +1,43 @@
+<ion-nav-view name="login">
+	<ion-view view-title="Login">
+		<ion-content>
+			<input type="hidden" id="openId" ng-model="openId" />
+			<input type="hidden" id="userName" ng-model="userName"/>
+			<div class="login_content">
+				<em class="animate_tip"></em>
+				<div class="logo_box"></div>
+				<div class="logo_btn" ng-show="openId!=null&&openId!=''">
+					<p class="txt_blue f22" ng-if="isHasCompany!=0">{{companyName}}</p>
+					<p class="txt_block f18 pr" ng-if="isHasCompany!=0">{{userName}}<font class="controler">{{roleName}}</font></p>
+					<p class="txt_red f14" ng-if="companyState==0">猪场正在等待平台审核...</p>
+					<p class="txt_red f14" ng-if="userState==0">身份正在等待猪场审核...</p>
+					<p ng-if="companyState==2">该猪场未通过平台审核</p>
+					<span ng-if="companyState==1&&userState==1" ng-click="enterPigFarm(companyId)" class="please mt11">进入猪场</span>
+					<span ng-if="isHasCompany==0" ng-click="joinPigFarm()" class="please mt11">加入猪场</span>
+					<span ng-if="isHasCompany==0" class="ppt">进入演示猪场</span>
+					<span class="BG_gray1 txt_white btn1" ng-if="userState==0" ng-click="quitPigFarm()">退出猪场</span>
+					<span class="BG_gray1 txt_white mt11 btn1" ng-if="companyState==0" ng-click="cancelPigFarm()">删除猪场</span>
+					<span class="BG_org txt_white mt11 add_pig" ng-if="isHasCompany==0" ng-click="createPigFarm()">创建猪场</span>
+				</div>
+				<div class="logo_btn" ng-show="openId==null||openId==''">
+					<span  class="ppt">进入演示猪场</span>
+				</div>
+				
+				<div class="animate_box">
+					<ul class="piggery_box">
+						<li class="piggery_title">选择猪场</li>
+						<li ng-repeat="company in companyList" class="piggery_normal txt_hide" ng-style="company.companyState!=1?{'color':'#adadad'}:{}" ng-click="selectCompany(company.companyId)">{{company.companyName}}</li>
+					</ul>
+					<div class="animate_btn">
+						<div>
+							<span ng-click="joinPigFarm()">加入猪场</span>
+						</div>
+						<div>
+							<span ng-click="createPigFarm()">创建猪场</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-nav-view>

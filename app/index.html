@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!--
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    -->
     <title></title>
 
     <link rel="manifest" href="manifest.json">
@@ -21,8 +26,7 @@
     <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <link href="styles/style.css" rel="stylesheet">
-
+    <link href="css/style.css" rel="stylesheet">
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="styles/ionic.app.css" rel="stylesheet">
     -->
@@ -46,9 +50,15 @@
     <!-- your app's js -->
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/configuration.js"></script>
-    <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/weipig.api.js"></script>
+    <script src="commons/js/commons.app.js"></script>
+    <script src="commons/js/services/querystringservice.js"></script>
+    <script src="login/js/login.app.js"></script>
+    <script src="login/js/controllers/loginctrl.js"></script>
+    <script src="js/app.js"></script>
+    
     <!-- endbuild -->
   </head>
   <body ng-app="starter">
