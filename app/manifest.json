@@ -1,7 +1,7 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
-  "start_url": "index.html",
+  "name": "WeiPig App",
+  "short_name": "WeiPig App",
+  "start_url": "index.html?openId=123&userName=wyg",
   "display": "standalone",
   "icons": [{
     "src": "icon.png",

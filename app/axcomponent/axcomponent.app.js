@@ -1,0 +1,1 @@
+var axcomponent=angular.module('axcomponent', []);

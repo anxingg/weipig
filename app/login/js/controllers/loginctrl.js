@@ -10,6 +10,11 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
   QueryStringService.getFilters($scope.filters);
   $scope.openId = $scope.filters.openId;
   $scope.userName = $scope.filters.userName;
+
+  $scope.openId = "123";
+  $scope.userName = "wyg";
+  console.log("$scope.openId="+$scope.openId+",$scope.userName="+$scope.userName);
+
   $scope.init = function(){
     var data={
 		  "openId":$scope.openId,
@@ -21,7 +26,7 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 			if($scope.isHasCompany=="0"){
 				//alert("您还未有加入任何猪场!");
 			}
-      else{
+      		else{
 				$scope.companyId = result.companyId;//当前猪场Id
 				$scope.companyState = result.companyState;//当前猪场状态
 				$scope.companyName = result.companyName;//当前猪场名称
@@ -36,6 +41,7 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 	 * 选择猪场
 	 */
 	$scope.selectCompany = function(companyId){
+		/*
 		$('.animate_tip').trigger("click");
 		var data={
 				"openId":$scope.openId,
@@ -51,11 +57,13 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 					$scope.userState = result.userState;//当前用户状态
 					$scope.roleName = result.roleName;//当前用户角色
 			});
+			*/
 	}
 	/**
 	 * 进入猪场
 	 */
 	$scope.enterPigFarm = function(companyId){
+		/*
 		var data={
 				"openId":$scope.openId,
 				"userId":$scope.userId,
@@ -69,6 +77,7 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 					layer.msg('系统异常,请稍后重试!',{"time":1000});
 				}
 			});
+			*/
 	}
 	/**
 	 * 创建猪场
@@ -87,6 +96,7 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 	 * 退出猪场
 	 */
 	$scope.quitPigFarm = function(){
+		/*
 		layer.confirm("确定要退出猪场吗?", {
 			  btn: ['确定','取消'] //按钮
 			}, function(){
@@ -102,11 +112,13 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 			 
 			}, function(){
 		});
+		*/
 	}
 	/**
 	 * 删除猪场
 	 */
 	$scope.cancelPigFarm = function(){
+		/*
 		layer.confirm("确定要删除猪场吗?", {
 			  btn: ['确定','取消'] //按钮
 			}, function(){
@@ -122,6 +134,7 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 			 
 			}, function(){
 		});
+		*/
 	}
 	
 	$scope.init();//启动开始页面
