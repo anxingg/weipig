@@ -1,4 +1,4 @@
-loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
+loginApp.controller('LoginCtrl', function($scope,$log,QueryStringService,farm) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -6,14 +6,14 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  $scope.filters = { openId: '', userName: '' };
+  $scope.filters = { openId: '123', userName: '王永刚' };
   QueryStringService.getFilters($scope.filters);
   $scope.openId = $scope.filters.openId;
   $scope.userName = $scope.filters.userName;
 
-  $scope.openId = "123";
-  $scope.userName = "wyg";
-  console.log("$scope.openId="+$scope.openId+",$scope.userName="+$scope.userName);
+  //$scope.openId = "123";
+  //$scope.userName = "wyg";
+  $log.debug("$scope.openId="+$scope.openId+",$scope.userName="+$scope.userName);
 
   $scope.init = function(){
     var data={
@@ -63,21 +63,23 @@ loginApp.controller('LoginCtrl', function($scope,QueryStringService,farm) {
 	 * 进入猪场
 	 */
 	$scope.enterPigFarm = function(companyId){
-		/*
+		$log.debug("enterPigFarm:"+companyId);
+		
 		var data={
-				"openId":$scope.openId,
-				"userId":$scope.userId,
-				"companyId":companyId,
-				"_clientType":"wap"
-			}; 
-			startIndexService.enterPigFarm(data,function(result){
-				if(result==1){
-					window.location.href = basePath+"logined/pig/keyin/index.jsp";
-				}else{
-					layer.msg('系统异常,请稍后重试!',{"time":1000});
-				}
-			});
-			*/
+			"openId":$scope.openId,
+			"userId":$scope.userId,
+			"companyId":companyId,
+			"_clientType":"wap"
+		}; 
+		farm.enterPigFarm(data,function(result){
+			if(result==1){
+				window.location.href = "main.html?openId="+$scope.openId
+					+"&userId="+$scope.userId+"&companyId="+companyId
+					+"&companyName="+$scope.companyName;
+			}else{
+				layer.msg('系统异常,请稍后重试!',{"time":1000});
+			}
+		});
 	}
 	/**
 	 * 创建猪场

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','common.app','weipig.api'])
+angular.module('starter', ['ionic','config','starter.controllers', 'starter.services','common.app','weipig.api'])
 //angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
@@ -24,12 +24,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','c
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function(ENV,$stateProvider, $urlRouterProvider,$logProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
+  $logProvider.debugEnabled(ENV.debug);
   $stateProvider
 
   // setup an abstract state for the tabs directive

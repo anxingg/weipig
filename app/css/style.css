@@ -508,3 +508,14 @@ html,body{height: 100%;overflow: hidden;}
 .double_btn{padding: 0 10px;overflow: hidden;margin-top: 32px;}
 .double_btn span{display: block;line-height: 40px;border-radius: 2px;text-align: center;color: #fff;font-size: 16px;background: #00a8e9;}
 .double_btn span:active{background: #0094cf;}
+
+/*20160927 王永刚修改增加导航条的颜色 */
+.bar.bar-blue {
+border-color: #00a8e9;
+background-color: #00a8e9;
+background-image: linear-gradient(0deg, #00a8e9, #00a8e9 50%, transparent 50%);
+color: #fff; }
+.bar.bar-blue .title {
+	color: #fff; }
+.bar.bar-blue.bar-footer {
+	background-image: linear-gradient(180deg, #00a8e9, #00a8e9 50%, transparent 50%); }

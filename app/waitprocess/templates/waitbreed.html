@@ -1,0 +1,85 @@
+<ion-header-bar align-title="center" class="bar-blue">
+    <div class="buttons">
+        <button class="button button-icon icon header_left" ui-sref="tab.produce">
+        </button>
+    </div>
+    <div class="buttons">
+        <button class="button button-icon icon header_left" ui-sref="tab.produce">
+        </button>
+    </div>
+    <div class="h1 title" ng-bind="title"></div>
+</ion-header-bar>
+<ion-content>
+	<div class="pig_state">
+        <span ng-click="chageActive(1)" ng-class='weanActive'>断奶待配母猪</span>
+        <span ng-click="chageActive(2)" ng-class='returnActive'>返情待配母猪</span>
+        <span ng-click="chageActive(3)" ng-class='matchedActive'>可配后备母猪</span>
+        <span ng-click="chageActive(4)" ng-class='emptyActive'>空胎待配母猪</span>
+        <span ng-click="chageActive(5)" ng-class='abortionActive'>流产待配母猪</span>
+    </div>
+    <div class="title_text clearpd">
+        <span class="title_one1" ng-show="controlShow==1">
+            断奶待配母猪：<span>{{result.totalNum}}头</span>
+        </span>
+        <span class="title_one1" ng-show="controlShow==2">
+            返情待配母猪：<span>{{result.totalNum}}头</span>
+        </span>
+        <span class="title_one1" ng-show="controlShow==3">
+            可配后备母猪：<span>{{result.totalNum}}头</span>
+        </span>
+        <span class="title_one1" ng-show="controlShow==4">
+            空胎待配母猪：<span>{{result.totalNum}}头</span>
+        </span>
+        <span class="title_one1" ng-show="controlShow==5">
+            流产待配母猪：<span>{{result.totalNum}}头</span>
+        </span>
+    </div>	
+    <table class="z_table" border="0" cellspacing="0" cellpadding="0" ng-show="controlShow==1">
+        <tr>
+            <th width="20%">母猪耳号</th>
+            <th>胎次</th>
+            <th width="25%">断奶日期</th>
+            <th width="25%">空怀天数</th>
+        </tr>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="sow in aaData">
+            <td>{{sow.earNo}}</td>
+            <td>{{sow.parity}}</td>
+            <td>{{sow.weanDate}}</td>
+            <td>{{sow.weanDays}}</td>
+        </tr>
+    </table>
+    <table class="z_table" border="0" cellspacing="0" cellpadding="0" ng-show="controlShow==2||controlShow==4||controlShow==5">
+        <tr>
+            <th width="20%">母猪耳号</th>
+            <th>胎次</th>
+            <th width="25%">妊检日期</th>
+            <th width="25%">妊检后天数</th>
+        </tr>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="sow in aaData">
+            <td>{{sow.earNo}}</td>
+            <td>{{sow.parity}}</td>
+            <td>{{sow.checkDate}}</td>
+            <td>{{sow.checkDays}}</td>
+        </tr>
+    </table>
+    <table class="z_table" border="0" cellspacing="0" cellpadding="0" ng-show="controlShow==3">
+        <tr>
+            <th width="20%">母猪耳号</th>
+            <th>日龄</th>
+            <th width="25%">进场日期</th>
+            <th width="25%">培育天数</th>
+        </tr>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="sow in aaData">
+            <td>{{sow.earNo}}</td>
+            <td>{{sow.birthDays}}</td>
+            <td>{{sow.enterDate}}</td>
+            <td>{{sow.enterDays}}</td>
+        </tr>
+    </table>
+    <div ng-if="noMoreData==1" class="more_list" ng-click="nextList()">点击加载更多</div>
+        <div ng-if="noData==1" class="no_data">
+            <span>暂无相关数据</span>
+        </div>
+	</div>
+</ion-content>
+
