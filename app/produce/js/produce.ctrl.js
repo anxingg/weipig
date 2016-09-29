@@ -119,6 +119,8 @@ produceApp
 	 */
 	$scope.gotowaitBreed = function(){
 		$state.go("waitbreed", {
+			"companyId": $scope.filters.companyId,
+			"userId": $scope.filters.userId,
             "waitBreedNum": $scope.waitBreedNum
         });
 	}

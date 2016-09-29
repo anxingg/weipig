@@ -66,7 +66,7 @@ angular.module('main', ['ionic','config','common.app',
   //待配母猪
   .state('waitbreed', {
     //url: '/waitbreed/:companyId/:userId',
-    url: '/waitbreed',
+    url: '/waitbreed/:companyId/:userId?waitBreedNum',
     templateUrl: "waitprocess/templates/waitbreed.html",
     controller: "waitBreedCtrl"
   })
