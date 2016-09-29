@@ -1,15 +1,17 @@
 produceApp
 
-.controller('ProduceCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm) {
+.controller('ProduceCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm,SessionService) {
     $log.debug("ProduceCtrl");
+	var localUser=SessionService.getLocalUser();
 	/*
+	原来的代码通过querystring解析来获取参数
     QueryStringService.getFilters($scope.filters);
 	*/
 	$scope.filters = { openId: '', userId: '' , companyId: '' ,companyName: '' };
-	$scope.filters.companyId=$stateParams.companyId;
-	$scope.filters.userId=$stateParams.userId;
-	$scope.filters.openId=$stateParams.openId;
-	$scope.filters.companyName=$stateParams.companyName;
+	$scope.filters.companyId=localUser.companyId;
+	$scope.filters.userId=localUser.userId;
+	$scope.filters.openId=localUser.openId;
+	$scope.filters.companyName=localUser.companyName;
     $log.debug("$scope.openId="+$scope.filters.openId+",$scope.companyName="+$scope.filters.companyName);
     /**
 	 * 初始化Index数据

@@ -5,8 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('main', ['ionic','config','common.app','login.app',
-  'produce.app','waitProcess.app','starter.controllers', 'starter.services','weipig.api'])
+var mainApp=angular.module('main', ['ionic','config','common.app','login.app',
+  'produce.app','waitProcess.app','starter.controllers', 'starter.services','weipig.api']);
+mainApp
 .config(function(ENV,$stateProvider, $urlRouterProvider,$logProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -31,7 +32,7 @@ angular.module('main', ['ionic','config','common.app','login.app',
     controller: 'LoginCtrl'
   })
   .state('tab.produce', {
-    url: '/produce/:companyId/:userId?openId&companyName',
+    url: '/produce',
     views: {
       'tab-produce': {
         templateUrl: 'produce/templates/tab-produce.html',
@@ -70,10 +71,14 @@ angular.module('main', ['ionic','config','common.app','login.app',
   })
   //待配母猪
   .state('waitbreed', {
-    //url: '/waitbreed/:companyId/:userId',
-    url: '/waitbreed/:companyId/:userId?waitBreedNum',
+    url: '/waitbreed?waitBreedNum',
     templateUrl: "waitprocess/templates/waitbreed.html",
     controller: "waitBreedCtrl"
+  })
+  .state('breedlist', {
+    url: '/breedlist',
+    templateUrl: 'breed/templates/breedlist.html',
+    controller: 'breedlistCtrl'
   })
   ;
 

@@ -1,1 +1,1 @@
-var loginApp=angular.module('login.app', ['ionic','common.app','weipig.api','axcomponent']);
+var loginApp=angular.module('login.app', ['ionic','main','common.app','weipig.api','axcomponent']);

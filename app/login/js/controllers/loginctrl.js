@@ -1,4 +1,4 @@
-loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm) {
+loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm,SessionService) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -22,6 +22,7 @@ loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryS
 			"_clientType":"wap"
 		}; 
 		farm.farmStart(data,function(result){
+			SessionService.setLocalUser(result);
 			$scope.isHasCompany = result.isHasCompany;
 			if($scope.isHasCompany=="0"){
 				//alert("您还未有加入任何猪场!");
