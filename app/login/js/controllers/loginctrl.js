@@ -1,4 +1,4 @@
-loginApp.controller('LoginCtrl', function($scope,$log,QueryStringService,farm) {
+loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -73,9 +73,12 @@ loginApp.controller('LoginCtrl', function($scope,$log,QueryStringService,farm) {
 		}; 
 		farm.enterPigFarm(data,function(result){
 			if(result==1){
-				window.location.href = "main.html?openId="+$scope.openId
-					+"&userId="+$scope.userId+"&companyId="+companyId
-					+"&companyName="+$scope.companyName;
+				$state.go("tab.produce", {
+					"companyId": $scope.filters.companyId,
+					"userId": $scope.filters.userId,
+					"openId":$scope.openId,
+					"companyName": $scope.companyName
+				});
 			}else{
 				layer.msg('系统异常,请稍后重试!',{"time":1000});
 			}

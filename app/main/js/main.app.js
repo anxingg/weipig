@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('main', ['ionic','config','common.app',
+angular.module('main', ['ionic','config','common.app','login.app',
   'produce.app','waitProcess.app','starter.controllers', 'starter.services','weipig.api'])
 .config(function(ENV,$stateProvider, $urlRouterProvider,$logProvider) {
 
@@ -25,8 +25,13 @@ angular.module('main', ['ionic','config','common.app',
 
   // Each tab has its own nav history stack:
 
+.state('login', {
+    url: '/login',
+    templateUrl: 'login/templates/login.html',
+    controller: 'LoginCtrl'
+  })
   .state('tab.produce', {
-    url: '/produce',
+    url: '/produce/:companyId/:userId?openId&companyName',
     views: {
       'tab-produce': {
         templateUrl: 'produce/templates/tab-produce.html',
@@ -73,5 +78,5 @@ angular.module('main', ['ionic','config','common.app',
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/produce');
+  $urlRouterProvider.otherwise('/login');
 });

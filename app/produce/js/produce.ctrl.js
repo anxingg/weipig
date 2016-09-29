@@ -1,9 +1,15 @@
 produceApp
 
-.controller('ProduceCtrl', function($scope,$state,$log,QueryStringService,farm) {
+.controller('ProduceCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm) {
     $log.debug("ProduceCtrl");
-    $scope.filters = { openId: '', userId: '' , companyId: '' ,companyName: '' };
+	/*
     QueryStringService.getFilters($scope.filters);
+	*/
+	$scope.filters = { openId: '', userId: '' , companyId: '' ,companyName: '' };
+	$scope.filters.companyId=$stateParams.companyId;
+	$scope.filters.userId=$stateParams.userId;
+	$scope.filters.openId=$stateParams.openId;
+	$scope.filters.companyName=$stateParams.companyName;
     $log.debug("$scope.openId="+$scope.filters.openId+",$scope.companyName="+$scope.filters.companyName);
     /**
 	 * 初始化Index数据
