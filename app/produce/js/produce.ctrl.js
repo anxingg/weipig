@@ -54,7 +54,7 @@ produceApp
 	 * 进入配种页面
 	 */
 	$scope.gotoBreed = function(){
-		window.location.href = basePath+"logined/pig/keyin/breedList.jsp";
+		$state.go("breedlist");
 	}
 	
 	/**

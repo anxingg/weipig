@@ -6,7 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var mainApp=angular.module('main', ['ionic','config','common.app','login.app',
-  'produce.app','waitProcess.app','starter.controllers', 'starter.services','weipig.api']);
+  'produce.app','waitProcess.app','breed.app'
+  ,'starter.controllers', 'starter.services','weipig.api']);
 mainApp
 .config(function(ENV,$stateProvider, $urlRouterProvider,$logProvider) {
 
