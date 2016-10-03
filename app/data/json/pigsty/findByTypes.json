@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "name":"舍1",
+        "type":1,
+        "createTime":"2016-10-22 00:00:01",
+        "createUserId":1,
+        "updateTime":"2016-10-22 00:00:01",
+        "updateUserId":1,
+        "isDelete":0
+    },
+    {
+        "id":2,
+        "name":"舍1",
+        "type":1,
+        "createTime":"2016-10-23 00:00:01",
+        "createUserId":2,
+        "updateTime":"2016-10-23 00:00:01",
+        "updateUserId":2,
+        "isDelete":0
+    }
+]

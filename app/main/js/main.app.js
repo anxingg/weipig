@@ -81,6 +81,11 @@ mainApp
     templateUrl: 'breed/templates/breedlist.html',
     controller: 'breedlistCtrl'
   })
+  .state('breedAddOrUp', {
+    url: '/breedAddOrUp',
+    templateUrl: 'breed/templates/breedAddOrUp.html?id',
+    controller: 'breedAddOrUpCtrl'
+  })
   ;
 
   // if none of the above states are matched, use this as the fallback

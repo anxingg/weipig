@@ -1,0 +1,44 @@
+<ion-header-bar align-title="center" class="bar-blue">
+    <div class="buttons">
+        <button class="button button-icon icon header_left" ui-sref="breedlist">
+        </button>
+    </div>
+    <div class="h1 title" >
+		<span class="header_text" ng-if="id">修改配种</span>
+		<span class="header_text" ng-if="!id">新增配种</span>
+	</div>
+	<span class="header_right" ng-click="save()">保存</span>
+</ion-header-bar>
+<ion-content>
+	<ul class="list_one1 mt8">
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red">*</em>母猪耳号</span>
+				<span class="container_txt pr" ng-if="!id" ng-click="selectPig0()">{{selectPigData.earNo}}<em class="right"></em></span>
+				<span class="container_txt pr" ng-if="id">{{selectPigData.earNo}}</span>
+			</li>
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red">*</em>配种日期</span>
+				<input id="breedDate" class="date" type="date" name="" value="" placeholder="">
+				<em class="time_change"></em>
+			</li>
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red"></em>所在舍</span>
+				<select ng-model="pigstyId" ng-options="pigsty.id as pigsty.name for pigsty in optData">
+					
+				</select>
+				<em class="select_down"></em>
+			</li>
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red">*</em>一配公猪</span>
+				<span class="container_txt pr" ng-click="selectPig1()">{{selectPigData1.earNo}}<em class="right"></em></span>
+			</li>
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red"></em>二配公猪</span>
+				<span class="container_txt pr" ng-click="selectPig2()">{{selectPigData2.earNo}}<em class="right"></em></span>
+			</li>
+			<li class="pr b_bor">
+				<span class="list_text2 txt_gray"><em class="txt_red"></em>三配公猪</span>
+				<span class="container_txt pr" ng-click="selectPig3()">{{selectPigData3.earNo}}<em class="right"></em></span>
+			</li>
+	</ul>
+</ion-content>

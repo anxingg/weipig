@@ -1,0 +1,37 @@
+<div class="modal">
+    <ion-header-bar align-title="center" class="bar-blue">
+        <div class="buttons">
+            <button class="button button-icon icon header_left" ng-click="closeModal()">
+            </button>
+        </div>
+        <div class="h1 title" >
+            <span>选择猪</span>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class='search_box pr b_bor'>
+            <ewmpig ear-no="earNo" ear-no-change="earNoChange(earNo)"></ewmpig> 
+            <!--
+            <em class='ewm' ng-click='scanQRCode()'></em>
+            <input type='text'  ng-model='earNo' placeholder='输入耳号搜索' />
+            -->  
+            <em class='search_ico'></em> 
+        </div> 
+        <div class='pig_list mt8'>
+            <ul>
+                <li ng-repeat='pig in pigListData' ng-click='selectPig(pig)'>
+                    <div class='one_box'>
+                        <span class='number'>{{pig.earNo}}</span>
+                        <span class='breeding'>{{pig.currentStateStr}}
+                            <span style='width:46px'>{{pig.days}}天</span>
+                        </span>
+                    </div>
+                    <div class='two_box'>
+                        <span class='two_txt'>位置：<span>{{pig.pigstyName}}</span></span>
+                        <span class='two_txt ml20'>品种：<span>{{pig.varietyType}}</span></span>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+    </ion-content>
+</script>

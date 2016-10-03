@@ -1,0 +1,21 @@
+{
+    "mapList":[{
+        "pigId":1,
+        "earNo":"e0001",
+        "pigstyName":"舍1",
+        "pigstyId":1,
+        "varietyType":"1",
+        "currentStateStr":"空胎",
+        "days":"3",
+        "recentBreedDate":"未知"
+    },{
+        "pigId":2,
+        "earNo":"e0002",
+        "pigstyName":"舍1",
+        "pigstyId":1,
+        "varietyType":"1",
+        "currentStateStr":"空胎",
+        "days":"5",
+        "recentBreedDate":"未知"
+    }]
+}

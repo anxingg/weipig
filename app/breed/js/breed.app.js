@@ -1,0 +1,1 @@
+var breedApp=angular.module('breed.app', ['ionic','common.app','ui-ewmpig','weipig.api']);

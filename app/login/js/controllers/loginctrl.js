@@ -1,4 +1,5 @@
-loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm,SessionService) {
+loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,
+	QueryStringService,farmAPI,SessionService) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -21,7 +22,7 @@ loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryS
 			"userName":$scope.userName,
 			"_clientType":"wap"
 		}; 
-		farm.farmStart(data,function(result){
+		farmAPI.farmStart(data,function(result){
 			SessionService.setLocalUser(result);
 			$scope.isHasCompany = result.isHasCompany;
 			if($scope.isHasCompany=="0"){
@@ -72,7 +73,7 @@ loginApp.controller('LoginCtrl', function($scope,$state,$stateParams,$log,QueryS
 			"companyId":companyId,
 			"_clientType":"wap"
 		}; 
-		farm.enterPigFarm(data,function(result){
+		farmAPI.enterPigFarm(data,function(result){
 			if(result==1){
 				$state.go("tab.produce", {
 					"companyId": $scope.filters.companyId,

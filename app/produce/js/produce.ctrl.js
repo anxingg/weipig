@@ -1,6 +1,7 @@
 produceApp
 
-.controller('ProduceCtrl', function($scope,$state,$stateParams,$log,QueryStringService,farm,SessionService) {
+.controller('ProduceCtrl', function($scope,$state,$stateParams,$log,
+	QueryStringService,reportAPI,SessionService) {
     $log.debug("ProduceCtrl");
 	var localUser=SessionService.getLocalUser();
 	/*
@@ -18,7 +19,7 @@ produceApp
 	 */
 	$scope.initKeyinIndexData = function(){
 		var param = {};
-		farm.initKeyinIndexData(param,function(result){
+		reportAPI.initKeyinIndexData(param,function(result){
             $log.debug(result);
 			$scope.waitBreedNum = result.waitBreedNum;
 			$scope.waitDeliveryNum = result.waitDeliveryNum;

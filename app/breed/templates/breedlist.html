@@ -1,0 +1,51 @@
+<ion-header-bar align-title="center" class="bar-blue">
+    <div class="buttons">
+        <button class="button button-icon icon header_left" ui-sref="tab.produce">
+        </button>
+    </div>
+    <div class="h1 title" >
+		<span>配种记录</span>
+	</div>
+	<span class="header_right" ng-if="roleCode!='serviceTeacher'" ng-click="gotoAddOrUp()">新增</span>
+</ion-header-bar>
+<ion-content>
+		<div class="pig_search pr">
+	
+		    <ewmpig ear-no="earNo" ear-no-change="earNoChange(earNo)"></ewmpig> 
+
+			<!--
+			<em class="ewm" ng-click="scanQRCode()"></em><input ng-model="earNo" type="text" placeholder="输入耳号搜索"/>
+			-->
+			<em class="sear_btn" ng-click="search()"></em>
+		</div>
+
+		<div class="mating_list">
+			<ul class="pr">
+				<li class="pr" ng-repeat="breedLi in aaData">
+					<span class="mating_date">{{breedLi.date}}</span>
+					<div class="mating_record pr">
+						<em class="arrow_left"></em>
+						<span class="mating_title">本周配种{{breedLi.num}}头</span>
+					</div>
+					<div class="mating_box pr" ng-repeat="breed in breedLi.list">
+						<p class="mating_time"><span>{{breed.date}}</span>  <span class="ml8">{{breed.sowId}}</span></p>
+						<div class="mating_data">
+							<div class="percent100"><span>公猪一：</span><span>{{breed.oneBoar}}</span></div>
+						</div>
+						<div class="mating_data">
+							<div class="percent100"><span>公猪二：</span><span>{{breed.twoBoar}}</span></div>
+						</div>
+						<div class="mating_data">
+							<div class="percent100"><span>公猪三：</span><span>{{breed.threeBoar}}</span></div>
+						</div>
+						<em class="mating_rewrite" ng-if="roleCode!='serviceTeacher'" ng-click="gotoAddOrUp(breed.id)"></em>
+					</div>
+				</li>
+			</ul>
+			<div ng-if="noMoreData==1" class="more_list" ng-click="nextList()">点击加载更多</div>
+			<div ng-if="noData==1" class="no_data">
+				<span>暂无相关数据</span>
+			</div>
+		</div>
+
+</ion-content>
