@@ -1,0 +1,1 @@
+var notifySettingApp=angular.module('notifysetting.app', ['ionic','common.app','weipig.api']);

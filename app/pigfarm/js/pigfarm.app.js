@@ -1,0 +1,1 @@
+var pigfarmApp=angular.module('pigfarm.app', ['ionic','common.app','weipig.api']);

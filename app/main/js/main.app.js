@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var mainApp=angular.module('main', ['ionic','config','common.app','login.app',
-  'produce.app','waitProcess.app','breed.app'
+  'produce.app','waitProcess.app','breed.app','pigfarm.app','notifysetting.app'
   ,'starter.controllers', 'starter.services','weipig.api']);
 mainApp
 .config(function(ENV,$stateProvider, $urlRouterProvider,$logProvider) {
@@ -41,12 +41,20 @@ mainApp
       }
     }
   })
-
+  .state('tab.pigfarm', {
+    url: '/pigfarm',
+    views: {
+      'tab-pigfarm': {
+        templateUrl: 'pigfarm/templates/pigfarm.html',
+        controller: 'PigfarmCtrl'
+      }
+    }
+  })
   .state('tab.chats', {
       url: '/chats',
       views: {
         'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
+          templateUrl: 'templates/tab-chats.html',  
           controller: 'ChatsCtrl'
         }
       }
@@ -85,6 +93,11 @@ mainApp
     url: '/breedAddOrUp',
     templateUrl: 'breed/templates/breedAddOrUp.html?id',
     controller: 'breedAddOrUpCtrl'
+  })
+  .state('notifysetting', {
+    url: '/notifysetting',
+    templateUrl: 'notifysetting/templates/notifysetting.html',
+    controller: 'NotifySettingCtrl'
   })
   ;
 

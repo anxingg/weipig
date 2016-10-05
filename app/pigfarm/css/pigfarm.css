@@ -1,0 +1,28 @@
+#pigfarm-content .pigfarm-banner{
+    width: 100%;
+    height: 145px;
+    background: url(../../images/banner_pig.png) no-repeat center;
+    background-size:100%;
+    text-align:center;
+    padding:40px;
+}
+
+#pigfarm-content .pigfarm-name{
+    text-align:center;
+    font-weight:blod;
+}
+
+#pigfarm-content .pigfarm-setting{
+    padding:0px;
+    width: 100%;
+    height: 100%;
+}
+
+#pigfarm-content .go{
+    position:absolute;
+    right:11px;
+}
+#pigfarm-content .item-barge{
+    position:absolute;
+    right:30px;
+}

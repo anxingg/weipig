@@ -1,0 +1,30 @@
+<ion-content id="pigfarm-content" class='BG_gray1'>
+    <div class='pigfarm-banner'>
+        <span class='pigfarm-name txt_blue f18'>{{pigfarmName}}</span>
+    </div> 
+    <div class='list'>
+        <a class="item" href="#/notifysetting">
+            <img ng-src="images/clock.png"></img>
+            提醒设置
+            <img class="go" ng-src="images/go.png"></img>
+        </a>
+        <a class="item" href="#">
+            <img ng-src="images/home.png"></img>
+            猪舍
+            <span class="item-barge">
+                {{psyNum}}间
+            </span>
+            <img class="go" ng-src="images/go.png"></img>
+        </a>
+        <a class="item" href="#">
+            <img ng-src="images/file.png"></img>
+            工作日志
+            <img class="go" ng-src="images/go.png"></img>
+        </a>
+    </div>
+    <div class="padding-top">
+        <button class="button button-full button-light" ng-click="exitFarm()">
+            退出猪场
+        </button>
+    </div>
+</ion-content>
